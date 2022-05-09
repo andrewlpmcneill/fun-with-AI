@@ -13,6 +13,7 @@ const config = {
   }
 };
 
+// routes
 router.post('/', async(req, res) => {
 
   const data = {
@@ -26,6 +27,7 @@ router.post('/', async(req, res) => {
 
   axios.post(url, data, config)
     .then(response => {
+      console.log(response.data.choices[0].text);
       res.end(response.data.choices[0].text);
     });
   
