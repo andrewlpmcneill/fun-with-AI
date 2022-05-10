@@ -8,6 +8,7 @@ const app = express();
 
 //import routes
 const promptsRoutes  = require("./routes/prompts");
+const uploadRoutes = require("./routes/upload");
 
 // middleware setup
 app.use(morgan(ENVIRONMENT));
@@ -19,5 +20,6 @@ app.use(cors());
 
 // routes
 app.use('/prompts', promptsRoutes);
+app.use('/upload', uploadRoutes);
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
