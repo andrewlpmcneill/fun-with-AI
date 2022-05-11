@@ -7,6 +7,84 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.nav, .nav-links {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+}
+
+header {
+  margin: auto;
+  margin-top: 4rem;
+  width: 90%;
+}
+
+header > h1 {
+  font-size: 45px;
+  font-weight: 800;
+  --typography-spacing-vertical: 0rem;
+}
+
+header > h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #73828c;
+  --typography-spacing-vertical: 0.7rem;
+}
+
+li > p {
+  font-size: 24px;
+}
+
+article > ul {
+  margin: 0 2rem;
+}
+
+article > h1 {
+  margin-left: 2rem;
+}
+
+article > button {
+  background-color: #141e26;
+  border-color: #141e26;
+}
+
+footer > button {
+  width: 10rem;
+  margin: auto;
+}
+
+.button-override-link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  margin-bottom: 0!important;
+  /*optional*/
+  /*input has OS specific font-family*/
+  color: #1095c1;
+  /* text-decoration: underline; */
+  cursor: pointer;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  width: 6rem;
+  /* --typography-spacing-vertical: 0rem; */
+}
+
+.button-override-link:hover, .fa-icon:hover {
+  color: #1ab3e6;
+  text-decoration: underline;
+}
+
+.fa-icon {
+  font-size: 24px;
+  height: 100%;
+}
+
+.linkedin {
+  margin-left: 1.5rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
