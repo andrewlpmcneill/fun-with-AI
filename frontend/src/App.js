@@ -8,6 +8,7 @@ function App() {
 
   const [list, setList] = useState([]);
   const [color, setColor] = useState();
+  const [loading, setLoading] = useState("false");
 
   const onMouseOver = event => {
     if (!event.target.className.includes('suggestion-selected')) {
@@ -35,6 +36,8 @@ function App() {
         onMouseLeave={onMouseLeave}
         color={color}
         setColor={setColor}
+        loading={loading}
+        setLoading={setLoading}
       />
       <ResultsList
         list={list}
