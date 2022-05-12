@@ -6,7 +6,7 @@ const axios = require('axios');
 
 export default function Form(props) {
 
-  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor } = props;
+  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor, loading, setLoading } = props;
   const [prompt, setPrompt] = useState('');
   const [selected, setSelected] = useState();
   const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline"]
@@ -34,6 +34,7 @@ export default function Form(props) {
   
   const savePrompt = event => {
     event.preventDefault();
+    setLoading("true");
     const lockedPrompt = prompt;
     axios.post("/prompts", { prompt: lockedPrompt, temperature: temperature, engine: engine })
       .then(response => {
@@ -43,6 +44,7 @@ export default function Form(props) {
           setColor(answer.slice(2));
         }
         setList(prev => [...prev, { prompt: lockedPrompt, response: response.data }]);
+        setLoading("false")
       })
   }
 
@@ -72,8 +74,9 @@ export default function Form(props) {
         onClick={savePrompt}
         onMouseOver={onMouseOver}
         onMouseLeave={onMouseLeave}
+        aria-busy={loading}
       >
-        Submit
+        {loading === "true" ? "" : "Submit"}
       </button>
     </section>
     
