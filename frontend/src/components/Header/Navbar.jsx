@@ -5,8 +5,8 @@ export default function Navbar(props) {
 
   return (
 
-    <div
-      className="nav"
+    <nav
+      className="nav-header"
     >
       <h1>
         Fun with AI
@@ -40,7 +40,7 @@ export default function Navbar(props) {
           />
         </a>
       </div>
-    </div>
+    </nav>
 
   )
 
