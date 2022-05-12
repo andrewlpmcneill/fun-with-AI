@@ -2,7 +2,7 @@ import Result from "./Result";
 
 export default function ResultsList(props) {
 
-  const { list, setList } = props;
+  const { list } = props;
 
   return (
     <ul>
