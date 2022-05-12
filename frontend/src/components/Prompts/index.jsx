@@ -6,7 +6,7 @@ import Header from "./Header";
 
 export default function Prompts(props) {
 
-  const { setList } = props;
+  const { setList, onMouseOver, onMouseLeave, color, setColor } = props;
 
   const [selected, setSelected] = useState("standard");
   const [temperature, setTemperature] = useState(0.5);
@@ -29,6 +29,10 @@ export default function Prompts(props) {
           temperature={temperature}
           setTemperature={setTemperature}
           engine={engine}
+          onMouseOver={onMouseOver}
+          onMouseLeave={onMouseLeave}
+          color={color}
+          setColor={setColor}
         />
         )}
         {selected === "image-ocr" && (
