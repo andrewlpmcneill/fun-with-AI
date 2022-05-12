@@ -14,11 +14,34 @@ export const generateTemplatePrompt = selected => {
       document.getElementById("prompt-input").value = value;
       return value;
     case "Product Name":
-      value = "Product description: A home milkshake maker\nSeed words: fast, healthy, compact.\nProduct names: HomeShaker, Fit Shaker, QuickShake, Shake Maker\n\nProduct description: A pair of shoes that can fit any foot size.\nSeed words: adaptable, fit, omni-fit.";
+      value = "Product description: A website that uses an AI model to provide answers.\nSeed words: AI, internship, application.\nProduct names:";
       document.getElementById("prompt-input").value = value;
       return value;
     case "Mood to Colour":
-      value = "The CSS code for a color like a blue sky at dusk:";
+      const roll = Math.floor((Math.random() * 6) + 1);
+      switch(roll) {
+        default:
+          value = "The hex code for a color like a sunset on the beach:";
+          break;
+        case 1:
+          value = "The hex code for a color like the sun:";
+          break;
+        case 2:
+          value = "The hex code for a color like a firetruck:";
+          break;
+        case 3:
+          value = "The hex code for a color like lime:";
+          break;
+        case 4:
+          value = "The hex code for a random color but not white:";
+          break;
+        case 5:
+          value = "The hex code for a color like the ocean:";
+          break;
+        case 6:
+          value = "The hex code for a color like a canary:";
+          break;
+      }
       document.getElementById("prompt-input").value = value;
       return value;
     case "Micro-Horror":
