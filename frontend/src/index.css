@@ -194,12 +194,6 @@ h6 {
   height: 4rem;
 }
 
-.suggestion-selected {
-  background-color: white;
-  color: black;
-  border-color: white;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
