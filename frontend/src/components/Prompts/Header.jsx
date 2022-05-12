@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Slider from 'rc-slider';
 
 export default function Header(props) {
@@ -65,11 +64,12 @@ export default function Header(props) {
               name="engine"
               value="davinci"
               checked={engine === "davinci" ? true : false}
+              readOnly
             />
             <label
               className="engine-heading"
               data-tooltip="Most capable, but slowest"
-              for="davinci"
+              htmlFor="davinci"
             >
               Davinci
             </label>
@@ -79,10 +79,11 @@ export default function Header(props) {
               name="engine"
               value="curie"
               checked={engine === "curie" ? true : false}
+              readOnly
             />
             <label
               className="engine-heading"
-              for="curie"
+              htmlFor="curie"
               data-tooltip="Balanced between capability and speed"
             >
               Curie
@@ -93,10 +94,11 @@ export default function Header(props) {
               name="engine"
               value="babbage"
               checked={engine === "babbage" ? true : false}
+              readOnly
             />
             <label
               className="engine-heading"
-              for="babbage"
+              htmlFor="babbage"
               data-tooltip="Very fast at straightforward tasks"
             >Babbage</label>
             <input
@@ -105,10 +107,11 @@ export default function Header(props) {
               name="engine"
               value="ada"
               checked={engine === "ada" ? true : false}
+              readOnly
             />
             <label
               className="engine-heading"
-              for="davinci"
+              htmlFor="davinci"
               data-tooltip="Fastest, but only for simple tasks"
             >
               Ada
