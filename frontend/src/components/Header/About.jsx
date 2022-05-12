@@ -70,7 +70,7 @@ export default function About(props) {
         </ul>
         <footer>
           <button
-            class="secondary"
+            className="secondary"
             data-target="modal-about"
             onClick={toggleModal}
           >
