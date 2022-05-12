@@ -6,7 +6,7 @@ export default function Header(props) {
 
   return (
     
-    <header>
+    <header className="header-header">
       <Navbar />
       <Headline />
       <About />
