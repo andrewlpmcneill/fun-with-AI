@@ -7,21 +7,73 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.nav, .nav-links {
+.nav-header, .nav-links {
   display: flex;
   justify-content: space-between;
   height: 3rem;
 }
 
-header {
+.header-header {
   margin: auto;
   margin-top: 4rem;
+  margin-bottom: 4rem;
   width: 90%;
 }
 
+.article-header {
+  margin-bottom: 1rem;
+}
+
+.article-header-modes {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.article-header-nav {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.article-header-controls {
+  width: 50%;
+}
+
+.article-header-controls-temperature {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
+
+.article-header-controls-temperature > h6 {
+  --typography-spacing-vertical: 0rem;
+  text-align: center;
+}
+
+.article-header-controls-engine {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.article-header-controls-engine > h6 {
+
+  width: 4rem;
+}
+
+.engine-heading {
+  border-bottom: 0!important;
+  font-weight: 600;
+}
+
+.engine-heading:hover {
+  color: gray;
+}
+
 header > h1 {
-  font-size: 45px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   --typography-spacing-vertical: 0rem;
 }
 
@@ -83,6 +135,69 @@ footer > button {
 
 .linkedin {
   margin-left: 1.5rem;
+}
+
+article {
+  width: 90%;
+  margin: auto;
+
+}
+
+.prompts-tab {
+  width: 11rem;
+  margin: 0 0.5rem;
+}
+
+.secondary {
+  color: #fefefe99;
+}
+
+textarea {
+  width: 49%;
+  height: 12rem;
+}
+
+section > button {
+  width: 49%;
+}
+
+h6 {
+  font-weight: 600;
+  width: 50%;
+  --typography-spacing-vertical: 0.1rem;
+}
+
+.prompt-body-headings {
+  display: flex;
+}
+
+.prompt-body-content {
+  display: flex;
+}
+
+.suggestions-row-1, .suggestions-row-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.suggestions-row-1 {
+  margin: 1rem 0;
+}
+
+.suggestions {
+  width: 49%;
+  margin-left: 1rem;
+}
+
+.suggestion-button {
+  width: 9rem;
+  height: 4rem;
+}
+
+.suggestion-selected {
+  background-color: white;
+  color: black;
+  border-color: white;
 }
 
 code {
