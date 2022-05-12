@@ -1,5 +1,3 @@
-import { lightenDarkenColor } from "../../helpers/lightenDarkenColor";
-
 export default function Suggestions(props) {
 
   const { selected, setSelected, color, onMouseOver, onMouseLeave } = props;
