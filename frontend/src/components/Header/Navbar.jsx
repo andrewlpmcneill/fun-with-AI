@@ -3,6 +3,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Navbar(props) {
 
+  const { onMouseOver, onMouseLeave} = props;
+
   return (
 
     <nav
@@ -15,9 +17,12 @@ export default function Navbar(props) {
         className="nav-links"
       >
         <button
+          id="about-link"
           className="button-override-link"
           data-target="modal-about"
           onClick={toggleModal}
+          onMouseOver={onMouseOver}
+          onMouseLeave={onMouseLeave}
         >
           About
         </button>
