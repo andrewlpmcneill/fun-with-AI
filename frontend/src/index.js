@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom/client';
 import '../node_modules/@picocss/pico/css/pico.min.css'
 import './index.css';
 import '../node_modules/rc-slider/assets/index.css';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json';
+import ru from 'javascript-time-ago/locale/ru.json';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+TimeAgo.addDefaultLocale(en);
+TimeAgo.addLocale(ru);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
