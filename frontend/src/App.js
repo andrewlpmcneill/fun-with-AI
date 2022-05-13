@@ -9,6 +9,7 @@ function App() {
   const [list, setList] = useState([]);
   const [color, setColor] = useState();
   const [loading, setLoading] = useState("false");
+  const [engine, setEngine] = useState("curie");
 
   const onMouseOver = event => {
     if (!event.target.className.includes('suggestion-selected')) {
@@ -32,6 +33,8 @@ function App() {
       />
       <Prompts
         setList={setList}
+        engine={engine}
+        setEngine={setEngine}
         onMouseOver={onMouseOver}
         onMouseLeave={onMouseLeave}
         color={color}
@@ -42,6 +45,8 @@ function App() {
       <ResultsList
         list={list}
         setList={setList}
+        engine={engine}
+        loading={loading}
       />
     </div>
   );
