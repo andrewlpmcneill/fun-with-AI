@@ -6,11 +6,10 @@ import Header from "./Header";
 
 export default function Prompts(props) {
 
-  const { setList, onMouseOver, onMouseLeave, color, setColor, loading, setLoading } = props;
+  const { setList, onMouseOver, onMouseLeave, color, setColor, loading, setLoading, engine, setEngine } = props;
 
   const [selected, setSelected] = useState("standard");
   const [temperature, setTemperature] = useState(0.5);
-  const [engine, setEngine] = useState("curie");
 
   return (
 
@@ -40,8 +39,6 @@ export default function Prompts(props) {
         {selected === "image-ocr" && (
         <Upload />
         )}
-      <footer>
-      </footer>
     </article>
 
   )
