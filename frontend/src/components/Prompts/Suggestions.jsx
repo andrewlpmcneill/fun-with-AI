@@ -38,7 +38,7 @@ export default function Suggestions(props) {
       className="suggestions"
     >
       <div
-        className="suggestions-row-1"
+        className="suggestions-row-1 grid"
       >
         <button
           value="Q&A"
@@ -66,7 +66,7 @@ export default function Suggestions(props) {
         >Product Name</button>
       </div>
       <div
-        className="suggestions-row-2"
+        className="suggestions-row-2 grid"
       >
         <button
           value="Mood to Colour"
