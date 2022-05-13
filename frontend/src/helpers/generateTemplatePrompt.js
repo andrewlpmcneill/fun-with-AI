@@ -24,13 +24,13 @@ export const generateTemplatePrompt = selected => {
           value = "The hex code for a color like a sunset on the beach:";
           break;
         case 1:
-          value = "The hex code for a color like the sun:";
+          value = "The hex code for a color like a Martian sunset:";
           break;
         case 2:
           value = "The hex code for a color like a firetruck:";
           break;
         case 3:
-          value = "The hex code for a color like lime:";
+          value = "The hex code for a color like New England:";
           break;
         case 4:
           value = "The hex code for a random color but not white:";
