@@ -1,3 +1,8 @@
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   overflow: auto;
@@ -9,88 +14,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* @media (min-width: 1920px) {
-
-  .header-header {
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 4rem;
-    width: 1728px;
-  }
-
-  article {
-    width: 1728px;
-    margin: auto;
-  }
-
-  .article-result {
-    margin-top: 2rem;
-    width: 1728px;
-  }
-
-} */
-
-@media (min-width: 1440px) {
-
-  .header-header {
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 4rem;
-    width: 1296px;
-  }
-
-  article {
-    width: 1296px;
-    margin: auto;
-  }
-
-  .article-result {
-    margin-top: 2rem;
-    width: 1296px;
-  }
-
+.header-header {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
-@media (min-width: 840px) and (max-width: 1439px) {
-
-  .header-header {
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 4rem;
-    width: 756px;
-  }
-
-  article {
-    width: 756px;
-    margin: auto;
-  }
-
-  .article-result {
-    margin-top: 2rem;
-    width: 756px;
-  }
-
+article {
+  margin: auto;
 }
 
-@media (min-width: 420px) and (max-width: 839px) {
-
-  .header-header {
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 4rem;
-    width: 756px;
-  }
-
-  article {
-    width: 756px;
-    margin: auto;
-  }
-
-  .article-result {
-    margin-top: 2rem;
-    width: 756px;
-  }
-
+.article-result {
+  margin-top: 2rem;
 }
 
 .nav-header, .nav-links {
@@ -105,10 +40,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.article-header-left {
-  width: 50%;
-}
-
 .article-header-right {
   display: flex;
   flex-direction: row;
@@ -119,12 +50,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.article-header-modes {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.article-header-nav {
+.article-header-modes, .article-header-nav {
   display: flex;
   justify-content: flex-start;
 }
@@ -138,7 +64,6 @@ body {
 
 .article-header-controls-temperature > h6 {
   --typography-spacing-vertical: 0rem;
-  /* text-align: center; */
 }
 
 .article-header-controls-engine {
@@ -149,11 +74,10 @@ body {
   
 }
 
-.article-header-controls-engine-row {
+.article-header-controls-engine-row, .prompt-body-content, .result-footer {
   display: flex;
-
 }
-.article-header-controls-engine-row > div {
+.article-header-left, .article-header-controls-engine-row > div {
   width: 50%;
 }
 
@@ -242,7 +166,7 @@ footer > button {
 }
 
 textarea {
-  width: 49%;
+  width: 100%;
   height: 12rem;
 }
 
@@ -264,16 +188,8 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
-.prompt-headings > h6 {
-  width: 50%;
-}
-
 .heading-suggestions {
   padding-left: 5px;
-}
-
-.prompt-body-content {
-  display: flex;
 }
 
 .suggestions-row-1, .suggestions-row-2 {
@@ -286,7 +202,7 @@ h6 {
 }
 
 .suggestions {
-  width: 49%;
+  width: 100%;
   margin-left: 1rem;
 }
 
@@ -309,7 +225,7 @@ h6 {
   margin-bottom: 0;
 }
 
-.result-body > h6 {
+.result-body > h6, .result-footer > h6 {
   width: 20%;
 }
 
@@ -325,20 +241,962 @@ h6 {
   font-weight: 500;
 }
 
-.result-footer {
-  display: flex;
-}
-
-.result-footer > h6 {
-  width: 20%;
-}
-
 .result-footer > p {
   width: 80%;
+}
+
+.modes {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip {
+  border-bottom: 0!important;
+}
+
+.section-header-left {
+  width: 50%;
+}
+
+.section-header-right {
+  width: 50%;
+}
+
+select {
+  text-align: center;
 }
 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (min-width: 1440px) {
+
+  .header-header, article, .article-result {
+    width: 1296px;
+  }
+
+  .header-header {
+    margin-bottom: 2.5rem;
+  }
+
+  textarea, #submit {
+    width: 97%
+  }
+
+  .suggestions {
+    margin-left: 0.5rem;
+  }
+
+  #engines-select {
+    display: none;
+  }
+
+}
+
+@media (min-width: 1140px) and (max-width: 1439px) {
+
+  .header-header, article, .article-result {
+    width: 1026px;
+  }
+
+  .header-header {
+    margin-bottom: 2rem;
+  }
+
+  .article-header-left {
+    width: 40%;
+  }
+
+  .article-header-right {
+    width: 60%;
+    margin-left: 1.5rem;
+  }
+
+  .prompts-tab {
+    height: 4rem;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #Q\&A, #Ads, #submit {
+    display: block;
+  }
+
+  #about-link {
+    padding-left: 1.4rem!important;
+  }
+
+  #submit {
+    width: 100%;
+  }
+
+  #engines-select {
+    display: none;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1139px) {
+
+  .header-header, article, .article-result {
+    width: 756px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-bottom: 2rem;
+  }
+
+  .article-header-modes {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .article-header-left {
+    width: 33%;
+  }
+
+  .article-header-right {
+    width: 67%;
+  }
+
+  #Product\ Name, #Micro-Horror, #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  #Mood\ to\ Colour {
+    font-size: 14px;
+  }
+
+  #babbage-label {
+    margin-right: 0;
+  }
+
+  .article-header-controls-engine {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .prompts-tab {
+    margin-left: 0;
+  }
+
+  #submit {
+    width: 100%;
+  }
+
+  #engines-select {
+    display: none;
+  }
+
+}
+
+
+@media (min-width: 840px) and (max-width: 991px) {
+
+  .header-header, article, .article-result {
+    width: 756px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-bottom: 2rem;
+  }
+
+  .article-header-modes {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .article-header-left {
+    width: 33%;
+  }
+
+  .article-header-right {
+    width: 67%;
+  }
+
+  #Product\ Name, #Micro-Horror, #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  #Mood\ to\ Colour {
+    font-size: 14px;
+  }
+
+  #submit {
+    width: 100%;
+  }
+
+  .article-header-controls-engine {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  #engines-select {
+    display: none;
+  }
+
+}
+
+@media (min-width: 700px) and (max-width: 839px) {
+
+  .header-header, article, .article-result {
+    width: 700px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .article-header-modes {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .article-header-left {
+    width: 45%;
+  }
+
+  .article-header-right {
+    width: 55%;
+  }
+
+  #Product\ Name, #Micro-Horror, #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  #Mood\ to\ Colour {
+    font-size: 14px;
+  }
+
+  .prompts-tab {
+    width: 13rem;
+  }
+
+  .article-header-controls-engine {
+    justify-content: flex-start;
+    gap: 0.8rem;
+  }
+
+  .article-header-controls-engine-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .article-header-controls-engine-row > div {
+    width: 100%;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #submit {
+    width: 100%;
+  }
+
+  #engines-select {
+    display: none;
+  }
+
+}
+
+@media (min-width: 609px) and (max-width: 699px) {
+
+  .header-header, article, .article-result {
+    width: 590px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .article-header-left > .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 95%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+}
+
+@media (min-width: 500px) and (max-width: 608px) {
+
+  .header-header, article, .article-result {
+    width: 465px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 100%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  .prompt-headings {
+    flex-direction: column-reverse;
+  }
+
+  .section-header-left, .section-header-right {
+    width: 100%;
+  }
+
+  .section-header-right {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+}
+
+@media (min-width: 426px) and (max-width: 499px) {
+
+  .header-header, article, .article-result {
+    width: 415px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 100%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  .prompt-headings {
+    flex-direction: column-reverse;
+  }
+
+  .section-header-left, .section-header-right {
+    width: 100%;
+  }
+
+  .section-header-right {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+
+  .header-header, article, .article-result {
+    width: 376px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 100%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  .prompt-headings {
+    flex-direction: column-reverse;
+  }
+
+  .section-header-left, .section-header-right {
+    width: 100%;
+  }
+
+  .section-header-right {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+  .result-body, .result-footer {
+    flex-direction: column;
+  }
+
+  .result-body > h6, .result-body > p, .result-footer > h6, .result-footer > p {
+    width: 100%;
+  }
+
+  .result-body > h6, .result-footer > h6 {
+    text-align: center;
+  }
+
+  .result-header {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+
+  .header-header, article, .article-result {
+    width: 320px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 100%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 14px;
+  }
+
+  #Essay\ Outline {
+    font-size: 16px;
+  }
+
+  .prompt-headings {
+    flex-direction: column-reverse;
+  }
+
+  .section-header-left, .section-header-right {
+    width: 100%;
+  }
+
+  .section-header-right {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+  .nav-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .nav-header > h1 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+    margin-right: 1.2rem;
+  }
+
+  .result-body, .result-footer {
+    flex-direction: column;
+  }
+
+  .result-body > h6, .result-body > p, .result-footer > h6, .result-footer > p {
+    width: 100%;
+  }
+
+  .result-body > h6, .result-footer > h6 {
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 275px) and (max-width: 320px) {
+
+  .header-header, article, .article-result {
+    width: 275px;
+  }
+
+  header > h2 {
+    font-size: 17px;
+  }
+
+  .header-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+  }
+
+  .article-header-left, .article-header-right {
+    width: 100%;
+  }
+
+  .modes {
+    justify-content: center;
+  }
+
+  .modes {
+    margin-bottom: 1rem;
+  }
+
+  .article-header-modes {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .article-header-controls-engine, .article-header-controls-temperature {
+    align-items: center;
+  }
+  
+  .article-header-controls-engine-row {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .prompts-tab {
+    width: 16rem;
+  }
+
+  textarea, #submit {
+    width: 100%;
+  }
+
+  .suggestions {
+    margin-left: 0.2rem;
+  }
+
+  .grid {
+    grid-column-gap: 0.3rem;
+  }
+
+  .suggestion-button {
+    height: 5.9rem;
+  }
+
+  .suggestions-row-1 {
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 0.2rem;
+  }
+
+  #Product\ Name {
+    font-size: 11px;
+  }
+
+  #Essay\ Outline {
+    font-size: 13px;
+  }
+
+  #Mood\ to\ Colour, #Micro-Horror {
+    font-size: 14px;
+  }
+
+  .prompt-headings {
+    flex-direction: column-reverse;
+  }
+
+  .section-header-left, .section-header-right {
+    width: 100%;
+  }
+
+  .section-header-right {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header-controls-engine-row {
+    display: none;
+  }
+
+  .nav-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .nav-header > h1 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+    margin-right: 1.2rem;
+  }
+
+  .result-body, .result-footer {
+    flex-direction: column;
+  }
+
+  .result-body > h6, .result-body > p, .result-footer > h6, .result-footer > p {
+    width: 100%;
+  }
+
+  .result-body > h6, .result-footer > h6 {
+    text-align: center;
+  }
+
+  .result-header > p {
+    font-size: 18px;
+  }
+
 }
