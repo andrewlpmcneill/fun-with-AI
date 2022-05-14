@@ -1,3 +1,4 @@
+import Errors from "./Errors";
 import { useState, useEffect } from "react";
 import { generateTemplatePrompt } from "../../helpers/generateTemplatePrompt";
 import { generateSuggestionTemperature } from "../../helpers/generateSuggestionTemperature";
@@ -7,7 +8,7 @@ const axios = require('axios');
 
 export default function Form(props) {
 
-  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor, loading, setLoading, id, setId } = props;
+  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor, loading, setLoading, id, setId, promptError, setPromptError } = props;
   
   const [prompt, setPrompt] = useState('');
   const [selected, setSelected] = useState();
@@ -50,6 +51,10 @@ export default function Form(props) {
   
   const savePrompt = event => {
     event.preventDefault();
+    if (!prompt) {
+      setPromptError(true);
+      return;
+    }
     setLoading("true");
     const lockedPrompt = prompt;
     axios.post("/prompts", { prompt: lockedPrompt, temperature: temperature, engine: engine })
@@ -109,6 +114,7 @@ export default function Form(props) {
               onMouseLeave={onMouseLeave}
             />
           </div>
+          {promptError && <Errors error="empty"/>}
         </div>
       </div>
     </section>
