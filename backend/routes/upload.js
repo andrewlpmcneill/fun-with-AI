@@ -32,6 +32,7 @@ router.post('/', upload.single('file'), async(req, res) => {
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
   const { data: { text } } = await worker.recognize(response.data.link);
+  const link = response.data.link;
   console.log(text);
   const data = {
     prompt: 'Correct this to standard English: ' + text,
@@ -45,7 +46,7 @@ router.post('/', upload.single('file'), async(req, res) => {
   axios.post(url, data, config)
     .then(response => {
       console.log(response.data.choices[0].text);
-      res.end(response.data.choices[0].text);
+      res.end(JSON.stringify({ data: response.data.choices[0].text, original: text, link: link }));
     });
   
   // await worker.terminate();
