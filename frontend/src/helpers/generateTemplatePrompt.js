@@ -30,10 +30,10 @@ export const generateTemplatePrompt = selected => {
           value = "The hex code for a color like a firetruck:";
           break;
         case 3:
-          value = "The hex code for a color like New England:";
+          value = "Generate a color hex code based on the mood 'depressed':";
           break;
         case 4:
-          value = "The hex code for a random color but not white:";
+          value = "Generate a color hex code based on the mood 'happy':";
           break;
         case 5:
           value = "The hex code for a color like the ocean:";
