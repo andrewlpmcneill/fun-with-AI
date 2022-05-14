@@ -10,6 +10,7 @@ export default function Prompts(props) {
 
   const [selected, setSelected] = useState("standard");
   const [temperature, setTemperature] = useState(0.5);
+  const [id, setId] = useState([1]);
 
   return (
 
@@ -34,10 +35,17 @@ export default function Prompts(props) {
           setColor={setColor}
           loading={loading}
           setLoading={setLoading}
+          id={id}
+          setId={setId}
         />
         )}
         {selected === "image-ocr" && (
-        <Upload />
+        <Upload
+          id={id}
+          setId={setId}
+          setList={setList}
+          setLoading={setLoading}
+        />
         )}
     </article>
 
