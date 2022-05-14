@@ -11,6 +11,8 @@ export default function Prompts(props) {
   const [selected, setSelected] = useState("standard");
   const [temperature, setTemperature] = useState(0.5);
   const [id, setId] = useState([1]);
+  const [uploadError, setUploadError] = useState(false);
+  const [promptError, setPromptError] = useState(false);
 
   return (
 
@@ -37,6 +39,8 @@ export default function Prompts(props) {
           setLoading={setLoading}
           id={id}
           setId={setId}
+          promptError={promptError}
+          setPromptError={setPromptError}
         />
         )}
         {selected === "image-ocr" && (
@@ -44,7 +48,10 @@ export default function Prompts(props) {
           id={id}
           setId={setId}
           setList={setList}
+          loading={loading}
           setLoading={setLoading}
+          uploadError={uploadError}
+          setUploadError={setUploadError}
         />
         )}
     </article>
