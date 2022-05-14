@@ -7,10 +7,11 @@ const axios = require('axios');
 
 export default function Form(props) {
 
-  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor, loading, setLoading } = props;
+  const { setList, temperature, setTemperature, engine, onMouseOver, onMouseLeave, color, setColor, loading, setLoading, id, setId } = props;
+  
   const [prompt, setPrompt] = useState('');
   const [selected, setSelected] = useState();
-  const [id, setId] = useState([1]);
+  
   const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline"]
 
   useEffect(() => {
