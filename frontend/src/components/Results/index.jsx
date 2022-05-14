@@ -17,6 +17,7 @@ export default function ResultsList(props) {
           time={result.time}
           key={result.id}
           engine={result.engine}
+          link={result.link}
         />
       ))}
     </ul>
