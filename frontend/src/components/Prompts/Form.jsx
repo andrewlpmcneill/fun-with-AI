@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { generateTemplatePrompt } from "../../helpers/generateTemplatePrompt";
 import { generateSuggestionTemperature } from "../../helpers/generateSuggestionTemperature";
 import Suggestions from "./Suggestions";
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 const axios = require('axios');
 
 export default function Form(props) {
@@ -68,32 +69,47 @@ export default function Form(props) {
     
     <section>
       <div className="prompt-headings">
-        <h6>
-          Enter prompt
-        </h6>
-        <h6 className="heading-suggestions">
-          Suggestions
-        </h6>
+        <div className="section-header-left">
+          <div className="modes">
+            <h6>
+              Enter prompt
+            </h6>
+            <div className="tooltip" data-tooltip="Enter text to generate responses">
+              <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+            </div>
+          </div>
+          <textarea id="prompt-input" onChange={onChange}></textarea>
+          <button
+            id="submit"
+            onClick={savePrompt}
+            onMouseOver={onMouseOver}
+            onMouseLeave={onMouseLeave}
+            aria-busy={loading}
+          >
+            {loading === "true" ? "" : "Submit"}
+          </button>
+        </div>
+        <div className="section-header-right">
+          <div className="modes">
+            <h6>
+              Suggestions
+            </h6>
+            <div className="tooltip" data-tooltip="Use a pre-made prompt">
+              <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+            </div>
+          </div>
+          <div className="prompt-body-content">
+            <Suggestions
+              selected={selected}
+              setSelected={setSelected}
+              setTemperature={setTemperature}
+              color={color}
+              onMouseOver={onMouseOver}
+              onMouseLeave={onMouseLeave}
+            />
+          </div>
+        </div>
       </div>
-      <div className="prompt-body-content">
-        <textarea id="prompt-input" onChange={onChange}></textarea>
-        <Suggestions
-          selected={selected}
-          setSelected={setSelected}
-          setTemperature={setTemperature}
-          color={color}
-          onMouseOver={onMouseOver}
-          onMouseLeave={onMouseLeave}
-        />
-      </div>
-      <button
-        onClick={savePrompt}
-        onMouseOver={onMouseOver}
-        onMouseLeave={onMouseLeave}
-        aria-busy={loading}
-      >
-        {loading === "true" ? "" : "Submit"}
-      </button>
     </section>
     
   )
