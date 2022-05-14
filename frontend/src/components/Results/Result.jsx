@@ -26,7 +26,7 @@ export default function Result(props) {
       </header>
       <div className='result-body'>
         <h6>
-          Prompt
+          {capitalizeEngine(engine) === "Image Upload" ? "TesseractJS" : "Prompt"}
         </h6>
         <p>
           {prompt}
@@ -36,7 +36,7 @@ export default function Result(props) {
         className="result-footer"
       >
         <h6>
-          Response
+        {capitalizeEngine(engine) === "Image Upload" ? "GPT-3" : "Response"}
         </h6>
         <p
           className="result-body"
