@@ -1,4 +1,6 @@
+import Engines from './Engines';
 import Slider from 'rc-slider';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 export default function Header(props) {
 
@@ -10,23 +12,26 @@ export default function Header(props) {
       className="article-header"
     >
       <div className="article-header-left">
-        <h6>
-          Modes
-        </h6>
+        <div className="modes">
+          <h6>
+            Modes
+          </h6>
+          <div className="tooltip" data-tooltip="GPT-3 text prompts or image text extraction">
+            <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+          </div>
+        </div>
         <div
           className="article-header-modes"
         >
           <button
             className={selected === "standard" ? "prompts-tab contrast" : "prompts-tab secondary"}
             onClick={() => setSelected("standard")}
-            data-tooltip="Query GPT-3 yourself"
           >
             Standard Prompts
           </button>
           <button
             className={selected === "image-ocr" ? "prompts-tab contrast" : "prompts-tab secondary"}
             onClick={() => setSelected("image-ocr")}
-            data-tooltip="Retrieve text from an image"
           >
             Image OCR Mode
           </button>
@@ -35,95 +40,21 @@ export default function Header(props) {
       <div
         className="article-header-right"
       >
-        <div className='article-header-controls-engine'>
-          <h6>
-            Engine
-          </h6>
-          <div
-            className="article-header-controls-engine-row"
-            onChange={event => setEngine(event.target.value)}
-          >
-            <div>
-              <input
-                type="radio"
-                id="davinci"
-                name="engine"
-                value="davinci"
-                checked={engine === "davinci" ? true : false}
-                readOnly
-              />
-              <label
-                className="engine-heading"
-                data-tooltip="Most capable, but slowest"
-                htmlFor="davinci"
-              >
-                Davinci
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="curie"
-                name="engine"
-                value="curie"
-                checked={engine === "curie" ? true : false}
-                readOnly
-              />
-              <label
-                className="engine-heading"
-                htmlFor="curie"
-                data-tooltip="Balanced between capability and speed"
-              >
-                Curie
-              </label>
-            </div>
-          </div>
-          <div
-            className="article-header-controls-engine-row"
-            onChange={event => setEngine(event.target.value)}
-          >
-            <div>
-              <input
-                type="radio"
-                id="babbage"
-                name="engine"
-                value="babbage"
-                checked={engine === "babbage" ? true : false}
-                readOnly
-              />
-              <label
-                className="engine-heading"
-                htmlFor="babbage"
-                data-tooltip="Very fast at straightforward tasks"
-              >
-                Babbage
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="ada"
-                name="engine"
-                value="ada"
-                checked={engine === "ada" ? true : false}
-                readOnly
-              />
-              <label
-                className="engine-heading"
-                htmlFor="davinci"
-                data-tooltip="Fastest, but only for simple tasks"
-              >
-                Ada
-              </label>
-            </div>
-          </div>
-        </div>
+        <Engines
+          engine={engine}
+          setEngine={setEngine}
+        />
         <div
           className="article-header-controls-temperature"
           >
-          <h6>
-            Temperature
-          </h6>
+          <div className="modes">
+            <h6>
+              Temperature
+            </h6>
+            <div className="tooltip" data-tooltip="Controls randomness of output">
+              <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+            </div>
+          </div>
           <Slider
             value={temperature}
             min={0}
