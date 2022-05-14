@@ -2,8 +2,11 @@ const axios = require('axios');
 
 export default function Upload(props) {
 
+  const { id, setId, setList, setLoading } = props;
+
   const onFormSubmit = event => {
     event.preventDefault();
+    setLoading("true");
     let data = new FormData();
     console.log(event.target.files[0]);
     data.append('file', event.target.files[0]);
@@ -17,6 +20,10 @@ export default function Upload(props) {
     })
       .then(response => {
         console.log('Image sent to server');
+        console.log(response.data);
+        setList(prev => [...prev, { prompt: response.data.original, response: response.data.data, id: id, engine: "Image Upload", time: Date.now(), link: response.data.link }]);
+        setLoading("false");
+        setId(prev => [...prev, prev[prev.length - 1] + 1]);
       })
   }
 
@@ -26,7 +33,6 @@ export default function Upload(props) {
       <form onSubmit={onFormSubmit}>
         <h3>Upload Image</h3>
         <input className="imageUpload" type="file" onChange={onFormSubmit} />
-        <button type="submit">Upload</button>
       </form>
     </div>
     
