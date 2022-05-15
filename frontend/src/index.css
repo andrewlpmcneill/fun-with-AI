@@ -1056,6 +1056,14 @@ code {
     width: 85%!important;
   }
 
+  #modal-about > article > h1 {
+    font-size: 24px;
+  }
+
+  #modal-about > article > ul > li > p {
+    font-size: 16px;
+  }
+
 }
 
 @media (min-width: 321px) and (max-width: 375px) {
@@ -1204,6 +1212,14 @@ code {
 
   .alert-prompt-error {
     font-size: 14px;
+  }
+
+  #modal-about > article > h1 {
+    font-size: 24px;
+  }
+
+  #modal-about > article > ul > li > p {
+    font-size: 16px;
   }
 
 }
@@ -1362,6 +1378,14 @@ code {
   .alert-prompt-error {
     font-size: 14px;
     padding-top: 8px;
+  }
+
+  #modal-about > article > h1 {
+    font-size: 22px;
+  }
+
+  #modal-about > article > ul > li > p {
+    font-size: 14px;
   }
 
 }
