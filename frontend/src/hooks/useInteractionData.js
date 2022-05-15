@@ -8,9 +8,6 @@ export default function useInteractionData() {
   // (Boolean) Submission loading state, used for spinners and skeleton results
   const [loading, setLoading] = useState(false);
 
-  // IDs of pre-made prompts
-  const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline"];
-
   // Overrides default hover colour behavior of link (lightens)
   const onMouseOverLink = event => {
     
@@ -41,6 +38,9 @@ export default function useInteractionData() {
 
   // Manuallly changes color of elements when colour state is updated
   useEffect(() => {
+
+    // IDs of pre-made prompts
+    const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline"];
 
     if (color) {
       document.documentElement.style.setProperty('--primary', color);
