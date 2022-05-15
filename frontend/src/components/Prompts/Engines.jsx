@@ -15,8 +15,8 @@ export default function Engines(props) {
           <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
         </div>
       </div>
-      {/* insert dropdown here */}
       <select
+        aria-label="gpt3 engine select"
         id="engines-select"
         onChange={event => setEngine(event.target.value)}
       >
@@ -52,6 +52,7 @@ export default function Engines(props) {
       >
         <div>
           <input
+            aria-label="gpt3 davinci engine select"
             type="radio"
             id="davinci"
             name="engine"
@@ -69,6 +70,7 @@ export default function Engines(props) {
         </div>
         <div>
           <input
+            aria-label="gpt3 curie engine select"
             type="radio"
             id="curie"
             name="engine"
@@ -95,6 +97,7 @@ export default function Engines(props) {
       >
         <div>
           <input
+            aria-label="gpt3 babbage engine select"
             type="radio"
             id="babbage"
             name="engine"
@@ -113,6 +116,7 @@ export default function Engines(props) {
         </div>
         <div>
           <input
+            aria-label="gpt3 ada engine select"
             type="radio"
             id="ada"
             name="engine"
