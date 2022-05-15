@@ -3,7 +3,10 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Navbar(props) {
 
-  const { onMouseOver, onMouseLeave } = props;
+  const {
+    onMouseOver,
+    onMouseLeave
+  } = props;
 
   return (
 
