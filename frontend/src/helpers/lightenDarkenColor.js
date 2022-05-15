@@ -1,4 +1,4 @@
-// function created by Chris Coyier @ https://css-tricks.com/snippets/javascript/lighten-darken-color/
+// not original work - function created by Chris Coyier @ https://css-tricks.com/snippets/javascript/lighten-darken-color/
 
 export const lightenDarkenColor = (col, amt) => {
   
