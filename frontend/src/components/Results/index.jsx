@@ -3,7 +3,7 @@ import Result from "./Result";
 
 export default function ResultsList(props) {
 
-  const { list, loading } = props;
+  const { list, loading, resultScroll } = props;
 
   return (
     <ul
@@ -18,6 +18,7 @@ export default function ResultsList(props) {
           key={result.id}
           engine={result.engine}
           link={result.link}
+          resultScroll={resultScroll}
         />
       ))}
     </ul>
