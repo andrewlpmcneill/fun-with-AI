@@ -14,6 +14,7 @@ export default function Headline(props) {
 
     <h2>
       <a
+        aria-label="github personal link"
         id="headline-link"
         href="https://github.com/andrewlpmcneill"
         target="_blank"
