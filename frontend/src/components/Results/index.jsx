@@ -3,13 +3,17 @@ import Result from "./Result";
 
 export default function ResultsList(props) {
 
-  const { list, loading, resultScroll } = props;
+  const {
+    list,
+    loading,
+    resultScroll
+  } = props;
 
   return (
     <ul
       className="results-list"
     >
-      {loading === "true" && <Skeleton />}
+      {loading && <Skeleton />}
       {[...list].reverse().map(result => (
         <Result
           prompt={result.prompt}
