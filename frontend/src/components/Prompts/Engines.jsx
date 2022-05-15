@@ -33,6 +33,7 @@ export default function Engines(props) {
         aria-label="gpt3 engine select"
         id="engines-select"
         onChange={selectEngine}
+        defaultValue="curie"
       >
         <option
           value="davinci"
@@ -41,7 +42,6 @@ export default function Engines(props) {
         </option>
         <option
           value="curie"
-          selected="selected"
         >
           Curie
         </option>
