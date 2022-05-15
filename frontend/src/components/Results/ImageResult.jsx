@@ -1,6 +1,8 @@
 export default function ImageResult(props) {
 
-  const { link } = props;
+  const {
+    link
+  } = props;
 
   return (
 
