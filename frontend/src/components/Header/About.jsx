@@ -70,6 +70,7 @@ export default function About(props) {
         </ul>
         <footer>
           <button
+            aria-label="Close"
             className="secondary"
             data-target="modal-about"
             onClick={toggleModal}
