@@ -24,12 +24,14 @@ export default function Header(props) {
           className="article-header-modes"
         >
           <button
+            aria-label="standard mode"
             className={selected === "standard" ? "prompts-tab contrast" : "prompts-tab secondary"}
             onClick={() => setSelected("standard")}
           >
             Standard Prompts
           </button>
           <button
+            aria-label="image process mode"
             className={selected === "image-ocr" ? "prompts-tab contrast" : "prompts-tab secondary"}
             onClick={() => setSelected("image-ocr")}
           >
@@ -56,6 +58,7 @@ export default function Header(props) {
             </div>
           </div>
           <Slider
+            aria-label="temperature slider"
             value={temperature}
             min={0}
             max={1}
