@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Navbar(props) {
 
-  const { onMouseOver, onMouseLeave} = props;
+  const { onMouseOver, onMouseLeave } = props;
 
   return (
 
@@ -17,6 +17,7 @@ export default function Navbar(props) {
         className="nav-links"
       >
         <button
+          aria-label="about page link"
           id="about-link"
           className="button-override-link"
           data-target="modal-about"
@@ -27,6 +28,7 @@ export default function Navbar(props) {
           About
         </button>
         <a
+          aria-label="github repository link"
           href="https://github.com/andrewlpmcneill/shopify-frontend-intern-challenge"
           target="_blank"
           rel="noreferrer"
@@ -36,6 +38,7 @@ export default function Navbar(props) {
           />
         </a>
         <a
+          aria-label="linkedin personal link"
           href="https://www.linkedin.com/in/andrewlpmcneill/"
           target="_blank"
           rel="noreferrer"
