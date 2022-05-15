@@ -1,31 +1,49 @@
-import { useState } from "react";
 import Upload from "./Upload";
 import Form from "./Form";
-
 import Header from "./Header";
 
 export default function Prompts(props) {
 
-  const { setList, onMouseOver, onMouseLeave, color, setColor, loading, setLoading, engine, setEngine } = props;
-
-  const [selected, setSelected] = useState("standard");
-  const [temperature, setTemperature] = useState(0.5);
-  const [id, setId] = useState([1]);
-  const [uploadError, setUploadError] = useState(false);
-  const [promptError, setPromptError] = useState(false);
+  const {
+    setList,
+    onMouseOver,
+    onMouseLeave,
+    color,
+    setColor,
+    loading,
+    setLoading,
+    engine,
+    selectEngine,
+    selectEngineRadio,
+    selectedMode,
+    setSelectedMode,
+    temperature,
+    setTemperature,
+    id,
+    setId,
+    uploadError,
+    setUploadError,
+    promptError,
+    setPromptError,
+    prompt,
+    setPrompt,
+    selectedSuggestion,
+    setSelectedSuggestion
+  } = props;
 
   return (
 
     <article>
       <Header
-        selected={selected}
-        setSelected={setSelected}
+        selectedMode={selectedMode}
+        setSelectedMode={setSelectedMode}
         temperature={temperature}
         setTemperature={setTemperature}
         engine={engine}
-        setEngine={setEngine}
+        selectEngine={selectEngine}
+        selectEngineRadio={selectEngineRadio}
       />
-        {selected === "standard" && (
+        {selectedMode === "standard" && (
         <Form
           setList={setList}
           temperature={temperature}
@@ -41,9 +59,13 @@ export default function Prompts(props) {
           setId={setId}
           promptError={promptError}
           setPromptError={setPromptError}
+          prompt={prompt}
+          setPrompt={setPrompt}
+          selectedSuggestion={selectedSuggestion}
+          setSelectedSuggestion={setSelectedSuggestion}
         />
         )}
-        {selected === "image-ocr" && (
+        {selectedMode === "image-ocr" && (
         <Upload
           id={id}
           setId={setId}
