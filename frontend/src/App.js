@@ -1,28 +1,54 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment } from 'react';
 import { lightenDarkenColor } from './helpers/lightenDarkenColor';
+import usePromptData from './hooks/usePromptData';
+import useResultData from './hooks/useResultData';
+import useInteractionData from './hooks/useInteractionData';
 import ResultsList from './components/Results/index';
 import Header from './components/Header'
 import Prompts from './components/Prompts/index';
 
 function App() {
 
-  const [list, setList] = useState([]);
-  const [color, setColor] = useState();
-  const [loading, setLoading] = useState("false");
-  const [engine, setEngine] = useState("curie");
-  const resultScroll = useRef(null);
+  // INTERACTION STATE AND FUNCTIONS
+  const {
+    color,
+    setColor,
+    loading,
+    setLoading,
+    onMouseOver,
+    onMouseLeave,
+    onMouseOverLink,
+    onMouseLeaveLink
+  } = useInteractionData();
 
-  const onMouseOver = event => {
-    if (!event.target.className.includes('suggestion-selected')) {
-      color ? event.target.style.backgroundColor = lightenDarkenColor(color, 20) : event.target.style.backgroundColor = lightenDarkenColor("#1095c1", 20);
-    }
-  }
+  // PROMPT STATE AND FUNCTIONS
+  const {
+    engine,
+    setEngine,
+    selectedMode,
+    setSelectedMode,
+    temperature,
+    setTemperature,
+    selectEngine,
+    selectEngineRadio,
+    uploadError,
+    setUploadError,
+    promptError,
+    setPromptError,
+    prompt,
+    setPrompt,
+    selectedSuggestion,
+    setSelectedSuggestion
+  } = usePromptData();
 
-  const onMouseLeave = event => {
-    if (!event.target.className.includes('suggestion-selected')) {
-      color ? event.target.style.backgroundColor = color : event.target.style.backgroundColor = "#1095c1";
-    }
-  }
+  // RESULT STATE AND FUNCTIONS
+  const {
+    list,
+    setList,
+    id,
+    setId,
+    resultScroll
+  } = useResultData();
 
   return (
 
@@ -30,6 +56,8 @@ function App() {
       <Header
         onMouseOver={onMouseOver}
         onMouseLeave={onMouseLeave}
+        onMouseOverLink={onMouseOverLink}
+        onMouseLeaveLink={onMouseLeaveLink}
         color={color}
         lightenDarkenColor={lightenDarkenColor}
       />
@@ -43,6 +71,22 @@ function App() {
         setColor={setColor}
         loading={loading}
         setLoading={setLoading}
+        selectEngine={selectEngine}
+        selectEngineRadio={selectEngineRadio}
+        selectedMode={selectedMode}
+        setSelectedMode={setSelectedMode}
+        temperature={temperature}
+        setTemperature={setTemperature}
+        id={id}
+        setId={setId}
+        uploadError={uploadError}
+        setUploadError={setUploadError}
+        promptError={promptError}
+        setPromptError={setPromptError}
+        prompt={prompt}
+        setPrompt={setPrompt}
+        selectedSuggestion={selectedSuggestion}
+        setSelectedSuggestion={setSelectedSuggestion}
       />
       <ResultsList
         list={list}
@@ -52,7 +96,7 @@ function App() {
         resultScroll={resultScroll}
       />
     </Fragment>
-    
+
   );
 }
 
