@@ -18,6 +18,7 @@ export default function Result(props) {
   // When result mounts, scroll to using its ref
   useEffect(() => {
     resultScroll.current.scrollIntoView({ behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
