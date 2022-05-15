@@ -3,30 +3,35 @@ const axios = require('axios');
 
 export default function Upload(props) {
 
-  const { id, setId, setList, loading, setLoading, uploadError, setUploadError } = props;
+  const {
+    id,
+    setId,
+    setList,
+    loading,
+    setLoading,
+    uploadError,
+    setUploadError
+  } = props;
 
+  // Initiate loading spinners and skeleton result, send image to server
   const onFormSubmit = event => {
     event.preventDefault();
+    setLoading(true);
     setUploadError(false);
-    setLoading("true");
     let data = new FormData();
+    // Validation for when user presses "cancel" when choosing a file
     if (!event.target.files[0]) {
-      setLoading("false");
-      console.log('rejected undefined');
+      setLoading(false);
       return;
     }
     const file = event.target.files[0];
-    console.log(file);
-    console.log(file.type);
+    // Incorrect file type validation
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
-      console.log('rejected bad file type');
       setUploadError(true);
-      setLoading("false");
+      setLoading(false);
       return;
     }
-
     data.append('file', event.target.files[0]);
-
     axios.post('/upload', data, {
       headers: {
         'accept': 'application/json',
@@ -35,10 +40,9 @@ export default function Upload(props) {
       }
     })
       .then(response => {
-        console.log('Image sent to server');
-        console.log(response.data);
+        // Update results to trigger new result render
         setList(prev => [...prev, { prompt: response.data.original, response: response.data.data, id: id, engine: "Image Upload", time: Date.now(), link: response.data.link }]);
-        setLoading("false");
+        setLoading(false);
         setId(prev => [...prev, prev[prev.length - 1] + 1]);
       })
   }
@@ -56,9 +60,9 @@ export default function Upload(props) {
             className="modes"
           >
             <h6
-              aria-busy={loading === "true" ? "true" : "false"}
+              aria-busy={loading ? "true" : "false"}
             >
-              {loading === "true" ? "Uploading..." : "Upload Image"}
+              {loading ? "Uploading..." : "Upload Image"}
             </h6>
           </div>
           <input
@@ -69,7 +73,9 @@ export default function Upload(props) {
         </form>
         {uploadError && <Errors error="upload"/>}
       </div>
-      <div className="OCR-mode-text">
+      <div
+        className="OCR-mode-text"
+      >
         <p>
           Select a <strong>.jpeg</strong> or <strong>.png</strong> image to upload. The server will apply optical character recognition (OCR) by TesseractJS on the image, followed by a cleanup pass by GPT-3. 
           <br /><br />
