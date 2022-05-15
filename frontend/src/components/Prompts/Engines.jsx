@@ -2,23 +2,37 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 export default function Engines(props) {
 
-  const { engine, setEngine } = props;
+  const {
+    engine,
+    selectEngine,
+    selectEngineRadio
+  } = props;
 
   return (
 
-    <div className='article-header-controls-engine'>
-      <div className="modes">
+    <div
+      className='article-header-controls-engine'
+    >
+      <div
+        className="modes"
+      >
         <h6>
           Engine
         </h6>
-        <div className="tooltip" data-tooltip="Choose your GPT-3 model">
-          <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+        <div
+          className="tooltip"
+          data-tooltip="Choose your GPT-3 model"
+        >
+          <AiOutlineInfoCircle
+            className="tooltip"
+            style={{marginBottom: "4px"}}
+          />
         </div>
       </div>
       <select
         aria-label="gpt3 engine select"
         id="engines-select"
-        onChange={event => setEngine(event.target.value)}
+        onChange={selectEngine}
       >
         <option
           value="davinci"
@@ -44,11 +58,7 @@ export default function Engines(props) {
       </select>
       <div
         className="article-header-controls-engine-row"
-        onChange={event => {
-          const value = event.target.value;
-          setEngine(value);
-          document.getElementById('engines-select').value = value;
-        }}
+        onChange={selectEngineRadio}
       >
         <div>
           <input
@@ -89,11 +99,7 @@ export default function Engines(props) {
       </div>
       <div
         className="article-header-controls-engine-row"
-        onChange={event => {
-          const value = event.target.value;
-          setEngine(value);
-          document.getElementById('engines-select').value = value;
-        }}
+        onChange={selectEngineRadio}
       >
         <div>
           <input
