@@ -4,7 +4,14 @@ import About from "./About";
 
 export default function Header(props) {
 
-  const { color, onMouseOver, onMouseLeave, lightenDarkenColor } = props;
+  const {
+    color,
+    onMouseOver,
+    onMouseLeave,
+    onMouseOverLink,
+    onMouseLeaveLink,
+    lightenDarkenColor
+  } = props;
 
   return (
     
@@ -15,6 +22,8 @@ export default function Header(props) {
       />
       <Headline
         color={color}
+        onMouseOverLink={onMouseOverLink}
+        onMouseLeaveLink={onMouseLeaveLink}
         lightenDarkenColor={lightenDarkenColor}
       />
       <About />
