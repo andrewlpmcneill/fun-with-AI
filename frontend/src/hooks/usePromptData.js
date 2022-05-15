@@ -36,7 +36,8 @@ export default function usePromptData() {
 
     setPrompt(generateTemplatePrompt(selectedSuggestion));
     setTemperature(generateSuggestionTemperature(selectedSuggestion, temperature))
-  
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSuggestion])
 
   return {
