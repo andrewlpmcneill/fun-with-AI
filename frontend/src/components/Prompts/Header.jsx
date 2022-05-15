@@ -4,20 +4,38 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 export default function Header(props) {
 
-  const {selected, setSelected, temperature, setTemperature, engine, setEngine} = props;
+  const {
+    selectedMode,
+    setSelectedMode,
+    temperature,
+    setTemperature,
+    engine,
+    selectEngine,
+    selectEngineRadio
+  } = props;
 
   return (
 
     <header
       className="article-header"
     >
-      <div className="article-header-left">
-        <div className="modes">
+      <div
+        className="article-header-left"
+      >
+        <div
+          className="modes"
+        >
           <h6>
             Modes
           </h6>
-          <div className="tooltip" data-tooltip="GPT-3 text prompts or image text extraction">
-            <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+          <div
+            className="tooltip"
+            data-tooltip="GPT-3 text prompts or image text extraction"
+          >
+            <AiOutlineInfoCircle
+              className="tooltip"
+              style={{marginBottom: "4px"}}
+            />
           </div>
         </div>
         <div
@@ -25,15 +43,15 @@ export default function Header(props) {
         >
           <button
             aria-label="standard mode"
-            className={selected === "standard" ? "prompts-tab contrast" : "prompts-tab secondary"}
-            onClick={() => setSelected("standard")}
+            className={selectedMode === "standard" ? "prompts-tab contrast" : "prompts-tab secondary"}
+            onClick={() => setSelectedMode("standard")}
           >
             Standard Prompts
           </button>
           <button
             aria-label="image process mode"
-            className={selected === "image-ocr" ? "prompts-tab contrast" : "prompts-tab secondary"}
-            onClick={() => setSelected("image-ocr")}
+            className={selectedMode === "image-ocr" ? "prompts-tab contrast" : "prompts-tab secondary"}
+            onClick={() => setSelectedMode("image-ocr")}
           >
             Image OCR Mode
           </button>
@@ -44,17 +62,26 @@ export default function Header(props) {
       >
         <Engines
           engine={engine}
-          setEngine={setEngine}
+          selectEngine={selectEngine}
+          selectEngineRadio={selectEngineRadio}
         />
         <div
           className="article-header-controls-temperature"
           >
-          <div className="modes">
+          <div
+            className="modes"
+          >
             <h6>
               Temperature
             </h6>
-            <div className="tooltip" data-tooltip="Controls randomness of output">
-              <AiOutlineInfoCircle className="tooltip" style={{marginBottom: "4px"}} />
+            <div
+              className="tooltip"
+              data-tooltip="Controls randomness of output"
+            >
+              <AiOutlineInfoCircle
+                className="tooltip"
+                style={{marginBottom: "4px"}}
+              />
             </div>
           </div>
           <Slider
