@@ -1,6 +1,8 @@
 export default function Errors(props) {
 
-  const { error } = props;
+  const {
+    error
+  } = props;
 
   return (
 
