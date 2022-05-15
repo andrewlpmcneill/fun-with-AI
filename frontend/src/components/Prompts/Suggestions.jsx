@@ -1,32 +1,40 @@
 export default function Suggestions(props) {
 
-  const { selected, setSelected, color, onMouseOver, onMouseLeave } = props;
+  const {
+    selectedSuggestion,
+    setSelectedSuggestion,
+    color,
+    onMouseOver,
+    onMouseLeave
+  } = props;
 
-  const onClick = event => {
-    if (selected === event.target.value) {
-      setSelected();
+  const onSuggestionClick = event => {
+    
+    // User clicks suggestion that is already selected
+    if (selectedSuggestion === event.target.value) {
+      // Release selection
+      setSelectedSuggestion();
+      // Change colour to match system setting
       event.target.style.backgroundColor = color || "#1095c1";
+      // If there is a non-default colour theme applied, extra styling is requirted
       if (!color) {
         event.target.style.borderColor = "#1095c1";
         event.target.style.color = "white";
       }
       return;
     }
-    if (selected) {
-      console.log(selected);
-      console.log(document.getElementById(selected).style.backgroundColor);
+    // Another suggestion has been previously selected and needs to be released
+    if (selectedSuggestion) {
+      const element = document.getElementById(selectedSuggestion);
       if (color) {
-        document.getElementById(selected).style.backgroundColor = color;
-        document.getElementById(selected).style.borderColor = color;
-        document.getElementById(selected).style.color = "white";
+        Object.assign(element.style,{ backgroundColor: color, borderColor: color, color: "white" });
       }
       else {
-        document.getElementById(selected).style.backgroundColor = "#1095c1";
-        document.getElementById(selected).style.borderColor = "#1095c1";
-        document.getElementById(selected).style.color = "white";
+        Object.assign(element.style,{ backgroundColor: "#1095c1", borderColor: "#1095c1", color: "white" });
       }
     }
-    setSelected(event.target.value);
+    // Set new selected suggestion and style it white
+    setSelectedSuggestion(event.target.value);
     event.target.style.backgroundColor = "white";
     event.target.style.color = "black";
     event.target.style.borderColor = "white";
@@ -43,24 +51,24 @@ export default function Suggestions(props) {
         <button
           value="Q&A"
           id="Q&A"
-          className={selected === "Q&A" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Q&A" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Q&A</button>
         <button
           value="Ads"
           id="Ads"
-          className={selected === "Ads" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Ads" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Ads</button>
         <button
           value="Product Name"
           id="Product Name"
-          className={selected === "Product Name" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Product Name" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Product Name</button>
@@ -71,24 +79,24 @@ export default function Suggestions(props) {
         <button
           value="Mood to Colour"
           id="Mood to Colour"
-          className={selected === "Mood to Colour" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Mood to Colour" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Mood to Colour</button>
         <button
           value="Micro-Horror"
           id="Micro-Horror"
-          className={selected === "Micro-Horror" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Micro-Horror" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Micro-Horror</button>
         <button
           value="Essay Outline"
           id="Essay Outline"
-          className={selected === "Essay Outline" ? "suggestion-button suggestion-selected" : "suggestion-button"}
-          onClick={onClick}
+          className={selectedSuggestion === "Essay Outline" ? "suggestion-button suggestion-selected" : "suggestion-button"}
+          onClick={onSuggestionClick}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >Essay Outline</button>
