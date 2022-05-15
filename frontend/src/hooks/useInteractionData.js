@@ -40,16 +40,20 @@ export default function useInteractionData() {
   useEffect(() => {
 
     // IDs of pre-made prompts
-    const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline"];
+    const elements = ["Q&A", "Ads", "Product Name", "Micro-Horror", "Essay Outline", "Mood to Colour"];
 
     if (color) {
       document.documentElement.style.setProperty('--primary', color);
       document.getElementById("about-link").style.setProperty('color', color);
       elements.forEach(button => {
+        console.log(document.getElementById(button).style.backgroundColor);
+        if (document.getElementById(button).style.backgroundColor === "white") return;
         document.getElementById(button).style.setProperty('background-color', color)
         document.getElementById(button).style.setProperty('border-color', color);
       })
       document.getElementById("headline-link").style.setProperty('color', color);
+      document.getElementById('submit').style.setProperty('background-color', color);
+      document.getElementById('submit').style.setProperty('border-color', color);
     }
   
   }, [color])
