@@ -30,6 +30,7 @@ export default function Form(props) {
   const onTextAreaChange = event => {
 
     setPrompt(event.target.value);
+    setPromptError(false);
     const element = document.getElementById(selectedSuggestion);
     if (selectedSuggestion && color) {
       Object.assign(element.style,{ backgroundColor: color, borderColor: color, color: "white" });
@@ -55,6 +56,7 @@ export default function Form(props) {
     setLoading(true);
     const lockedPrompt = prompt;
     axios.post("/prompts", { prompt: lockedPrompt, temperature: temperature, engine: engine })
+    // axios.post("https://fun-with-ai-backend.herokuapp.com/prompts", { prompt: lockedPrompt, temperature: temperature, engine: engine })
       .then(response => {
         const answer = response.data;
         // If response is a hex code, set it to system colour
