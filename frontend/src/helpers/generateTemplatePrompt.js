@@ -18,7 +18,7 @@ export const generateTemplatePrompt = selected => {
       document.getElementById("prompt-input").value = value;
       return value;
     case "Mood to Colour":
-      const roll = Math.floor((Math.random() * 6) + 1);
+      const roll = Math.floor((Math.random() * 7) + 1);
       switch(roll) {
         default:
           value = "The hex code for a color like a sunset on the beach:";
@@ -30,10 +30,10 @@ export const generateTemplatePrompt = selected => {
           value = "The hex code for a color like a firetruck:";
           break;
         case 3:
-          value = "Generate a color hex code based on the mood 'depressed':";
+          value = "Generate a random hex code color:";
           break;
         case 4:
-          value = "Generate a color hex code based on the mood 'happy':";
+          value = "Generate a random hex code color:";
           break;
         case 5:
           value = "The hex code for a color like the ocean:";
@@ -41,6 +41,8 @@ export const generateTemplatePrompt = selected => {
         case 6:
           value = "The hex code for a color like a canary:";
           break;
+        case 7:
+          value = "Generate a random hex code color:";
       }
       document.getElementById("prompt-input").value = value;
       return value;
