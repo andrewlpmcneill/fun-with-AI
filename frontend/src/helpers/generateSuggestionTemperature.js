@@ -10,7 +10,7 @@ export const generateSuggestionTemperature = (selected, previous) => {
     case "Product Name":
       return 0.8;
     case "Mood to Colour":
-      return 0;
+      return 0.5;
     case "Micro-Horror":
       return 0.8;
     case "Essay Outline":
