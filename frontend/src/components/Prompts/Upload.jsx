@@ -33,6 +33,7 @@ export default function Upload(props) {
     }
     data.append('file', event.target.files[0]);
     axios.post('/upload', data, {
+    // axios.post('https://fun-with-ai-backend.herokuapp.com/upload', data, {
       headers: {
         'accept': 'application/json',
         'Accept-Language': 'en-US, en;q=0.8',
