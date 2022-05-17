@@ -36,7 +36,7 @@ router.post('/', upload.single('file'), async(req, res) => {
   console.log(text);
   const data = {
     prompt: 'Correct this to standard English: ' + text,
-    temperature: 0.5,
+    temperature: 0,
     max_tokens: 64,
     top_p: 1.0,
     frequency_penalty: 0.0,
