@@ -31,3 +31,5 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
 misc
+# Local Netlify folder
+.netlify
