@@ -19,7 +19,7 @@ export default function Headline(props) {
       >
         Andrew McNeill
       </a>
-      's submission for the Shopify Front End Developerrr Intern Challenge, May 2022.
+      's submission for the Shopify Front End Developer Intern Challenge, May 2022.
     </h2>
 
   )
